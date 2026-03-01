@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('posts');
+const sorted = posts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
+---
+{sorted.map(({ id, slug, data }) => (
+  <article class="post-card">
+    <h3><a href={`/posts/${slug}/`}>{data.title}</a></h3>
+    <div class="meta">{new Date(data.pubDate).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</div>
+    {data.description && <p>{data.description}</p>}
+  </article>
+))}
