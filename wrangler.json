@@ -1,0 +1,10 @@
+{
+  "name": "astro-blog-starter-template",
+  "compatibility_date": "2026-08-13",
+  "assets": {
+    "directory": "./dist"
+  },
+  "build": {
+    "command": "npm run build"
+  }
+}
